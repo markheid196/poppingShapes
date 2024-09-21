@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Shapes with Border-Radius and Pop Sound</title>
+    <style>
+
+        body {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+            margin: 0 3vw;
+            background-color: white;
+        }
+
+        /* Wrapper to hold shapes */
+        .shape-wrapper {
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+        }
+
+        .shape {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .shape1 {
+            background: radial-gradient(circle, coral, crimson);
+            border: hotpink 1px solid;
+            box-shadow: 5px 5px 5px rgba(220, 20, 60, 0.75);
+        }
+
+        .shape2 {
+            background: radial-gradient(circle, aquamarine, lightseagreen);
+            border: aqua 1px solid;
+            box-shadow: 5px 5px 5px rgb(32, 178, 170);
+        }
+
+        .shape3 {
+            background: radial-gradient(circle, yellow, goldenrod);
+            border: yellow 1px solid;
+            box-shadow: 5px 5px 5px rgba(218, 165, 32, 0.75);
+        }
+
+        .shape4 {
+            background: radial-gradient(circle, deepskyblue, royalblue);
+            border: aqua 1px solid;
+            box-shadow: 5px 5px 5px rgba(65, 105, 225, 0.75);
+        }
+
+        .shape5 {
+            background: radial-gradient(circle, greenyellow, limegreen);
+            border: greenyellow 1px solid;
+            box-shadow: 5px 5px 5px rgba(50, 205, 50, 0.75);
+        }
+
+        .shape6 {
+            background: radial-gradient(circle, orange, orangered);
+            border: orange 1px solid;
+            box-shadow: 5px 5px 5px rgba(238, 99, 99, 0.75);
+        }
+
+        .shape-wrapper:hover .shape,
+        .shape-wrapper:focus .shape {
+            transform: scale(1.5);
+            opacity: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Shape Wrappers -->
+    <div class="shape-wrapper">
+        <div class="shape shape1"></div>
+    </div>
+
+    <div class="shape-wrapper">
+        <div class="shape shape6"></div>
+    </div>
+
+    <div class="shape-wrapper">
+        <div class="shape shape3"></div>
+    </div>
+
+    <div class="shape-wrapper">
+        <div class="shape shape5"></div>
+    </div>
+
+    <div class="shape-wrapper">
+        <div class="shape shape2"></div>
+    </div>
+
+    <div class="shape-wrapper">
+        <div class="shape shape4"></div>
+    </div>
+
+    <!-- Pop Sound Effect -->
+    <audio id="pop-sound">
+        <source src="pop.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Get all shape wrappers
+        const shapeWrappers = document.querySelectorAll('.shape-wrapper');
+
+        // Get the audio element
+        const popSound = document.getElementById('pop-sound');
+
+        // Add event listener to each wrapper
+        shapeWrappers.forEach(wrapper => {
+            wrapper.addEventListener('mouseover', () => {
+                // Reset the sound to the beginning and play it
+                popSound.currentTime = 0;
+                popSound.play();
+            });
+        });
+    </script>
+
+</body>
+</html>
